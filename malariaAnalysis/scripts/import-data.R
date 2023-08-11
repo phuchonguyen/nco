@@ -33,31 +33,30 @@ outcomes <- c(
   "renal_disease",
   "asthma",
   "sickle_cell_disease",
-  "abdominal_surgery",
-  "blood_transfusion",
+  "abdominal_surgery",                        #  34
+  "blood_transfusion",                        #  15
   "pelvis_spine_or_femur_fracture",
   "major_injury_from_road_traffic_accident",
-  "familial_diabetes",
-  "familial_hypertension",
-  "familial_multiple_gestation",
+  "familial_diabetes",                        #  34
+  "familial_hypertension",                    #  70
+  "familial_multiple_gestation",              # 191
   "drug_allergies"
 )
 
 covariates <- c(
   "alcohol_use",
-  "education_level",
+  # "education_level",  # need to collapse
   "age_at_enrollment_years",
   "bank_account",
   "bed",
   "bicycle",
-  "car_or_truck",
-  "country",
-  "drinking_water_source",
-  "dwelling_type",
+  # "car_or_truck",
+  # "drinking_water_source",  # need to collapse
+  # "dwelling_type",  # perfect correlation with roof_material_type
   "household_wealth_index_categorical",
-  "human_waste_facilities",
-  "meals_per_day_categorization",
-  "transit_to_health_facility"
+  "latrine_type",
+  "meals_per_day_categorization"
+  # "transit_to_health_facility"  # need to collapse
 )
 
 treatments <- c(
