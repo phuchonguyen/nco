@@ -9,49 +9,60 @@
 
 \usepackage{obs_study_style}
 
+\usepackage{tkz-graph}
+\usetikzlibrary{shapes.geometric}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+
 % Definitions of handy macros can go here
 
-\newcommand{\dataset}{{\cal D}}
-\newcommand{\fracpartial}[2]{\frac{\partial #1}{\partial  #2}}
+\newtheorem{assumption}{Assumption}
+
+\newcommand{\phuc}[1]{{\color{teal} {#1}}}
+\newcommand{\todo}[1]{{\color{purple} todo: {#1}}}
 
 % For papers submitted for review, just fill in author names
 % For accepted papers, heading arguments are {volume}{year}{pages}{submitted}{published}{author-full-names}
-\heading{}{}{}{}{}{Hari Seldon and Mitch A. Taylor}
+\heading{}{}{}{}{}{Phuc Nguyen, David A. Pritchard, and Alan Brookhart}
 
 % Short headings should be running head and authors last names
 
-\ShortHeadings{The Accuracy of Psychohistorical Equations for Predicting the Results of Observational Studies}{Seldon and Taylor}
+\ShortHeadings{The Accuracy of Psychohistorical Equations for Predicting the Results of Observational Studies}{Nguyen, Pritchard, and Brookhart}
 \firstpageno{1}
 
 \begin{document}
 
 \title{Psychohistorical Equations for Observational Studies}
 
-\author{\name Hari Seldon \email hseldon@streeling.edu \\
+\author{\name Phuc Nguyen \email hseldon@streeling.edu \\
        \addr Department of Psychohistory\\
        Streeling University\\
        Trantor, Center of the Galaxy 94830, Galactic Empire 
        \AND
-       \name Mitch A. Taylor \email mtaylor@pacifictech.edu \\
+       \name David A. Pritchard \email david.al.pritchard@gmail.com \\
        \addr Department of Physics\\
        Pacific Tech \\
-       Los Angeles, CA 90001, USA}
+       Los Angeles, CA 90001, USA
+       \AND
+       \name Alan Brookhart \email mtaylor@pacifictech.edu \\
+       \addr Department of Physics\\
+       Pacific Tech \\
+       Los Angeles, CA 90001, USA
+       }
 
 \maketitle
 
 \begin{abstract}%   <- trailing '%' for backward compatibility of .sty file
-Psychohistory combines history, sociology, and mathematical statistics to make general predictions about the future behavior of very large groups of people. There are two axioms of psychohistory: (1) the population whose behaviour is modeled should be sufficiently large; (2) the population should remain in ignorance of the results of the application of psychohistorical analyses.  In this paper, we use psychohistory to predict the results of large observational studies.
+\todo{}Psychohistory combines history, sociology, and mathematical statistics to make general predictions about the future behavior of very large groups of people. There are two axioms of psychohistory: (1) the population whose behaviour is modeled should be sufficiently large; (2) the population should remain in ignorance of the results of the application of psychohistorical analyses.  In this paper, we use psychohistory to predict the results of large observational studies.
 \end{abstract}
 
 \begin{keywords}
-  Mass Action, Prime Radiant, Survival Analysis 
+  \todo{}Mass Action, Prime Radiant, Survival Analysis
 \end{keywords}
 
-\section{Introduction}
-
-Psychohistory depends on the idea that, while one cannot foresee the actions of a particular individual, the laws of statistics as applied to large groups of people can predict the general flow of future events~\citep{hernan2010causal}.  As an analogy, consider a gas.  It is difficult to predict the motion of a single molecule in a gas, but we can predict the mass action of the gas to a high level of accuracy.  In this paper, we apply psychohistory to predict the results of observational studies.  \citet{naimi2023defining} defined an observational study as an empiric investigation in which ''...the objective is to elucidate cause-and-effect relationships…[in which] it is not feasible to use controlled experimentation, in the sense of being able to impose the procedures or treatments whose effects it is desired to discover, or to assign subjects at random to different procedures.''
-
-...
+\input{nco-manuscript-content}
 
 % Acknowledgements should go at the end, before appendices and references
 
@@ -75,7 +86,7 @@ Psychohistory depends on the idea that, while one cannot foresee the actions of 
 In this appendix we prove the following theorem from
 Section~6.2:
 
-...
+\ldots
 
 \vskip 0.2in
 \bibliography{refs}
