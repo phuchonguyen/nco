@@ -1,6 +1,14 @@
 .DS_Store
 *.txt
 
+/manuscript/manuscript.aux
+/manuscript/manuscript.bbl
+/manuscript/manuscript.blg
+/manuscript/manuscript.dvi
+/manuscript/manuscript.log
+/manuscript/manuscript.out
+/manuscript/manuscript.pdf
+/manuscript/manuscript.synctex.gz
 /manuscript/.auctex-auto/
 /manuscript/nco-bias-characterization.aux
 /manuscript/nco-bias-characterization.bbl
