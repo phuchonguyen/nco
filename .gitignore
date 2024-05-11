@@ -1,2 +1,10 @@
 .DS_Store
 *.txt
+
+/manuscript/.auctex-auto/
+/manuscript/nco-bias-characterization.aux
+/manuscript/nco-bias-characterization.bbl
+/manuscript/nco-bias-characterization.blg
+/manuscript/nco-bias-characterization.log
+/manuscript/nco-bias-characterization.pdf
+/manuscript/nco-bias-characterization.synctex.gz
