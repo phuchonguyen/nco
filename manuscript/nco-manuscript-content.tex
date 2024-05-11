@@ -1,5 +1,5 @@
-\section{Background}
-\label{sec:nco_background}
+\section{Introduction}
+\label{sec:introduction}
 
 \subsection{Unmeasured confounding}
 
@@ -38,7 +38,7 @@ Suppose that, in addition to measured variables $L$, there exist unmeasured comm
   $N^a = N \text{ and } N \perp A | U, L$ for all $a$
 \end{assumption}
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \includegraphics[trim={0 11cm 13cm 1.5cm}, clip, width=0.6\textwidth]{figures/dags.pdf}
     \caption[Causal DAG of an ideal NCO $N$ for bias detection/correction of the effect of treatment $A$ on outcome $Y$.]{Causal DAG of an ideal NCO $N$ for bias detection/correction of the effect of treatment $A$ on outcome $Y$, with observed confounders $L$ and unmeasured confounders $U$. Ideal NCOs have the same incoming arrows as $Y$, except that from $A$, and are U-comparable to $Y$ \cite{lipsitch2010negative}. A dashed line means that a relationship may exist.}
@@ -301,3 +301,8 @@ Now we consider a simulation setting with two sources of confounding and a set o
 \subsection{Results}
 
 \section{Discussion}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "nco-bias-characterization.tex"
+%%% End:
