@@ -17,3 +17,15 @@
 /manuscript/nco-bias-characterization.out
 /manuscript/nco-bias-characterization.pdf
 /manuscript/nco-bias-characterization.synctex.gz
+
+/jupyter/.ipynb_checkpoints/
+/jupyter/product-mean-model.ipynb
+/jupyter/group-mean-model-binary-treatment.ipynb
+/jupyter/group-gp-model-binary-treatment-multiple-confounding.ipynb
+/jupyter/Analysis of simulations.ipynb
+
+nohup.out
+
+/output
+/plco
+/figures
