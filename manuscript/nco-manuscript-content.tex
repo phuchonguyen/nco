@@ -261,24 +261,60 @@ where $T$ is the number of MCMC iterations; $\phi_\delta^{(t)}, \mu^{(t)}, \sigm
 \section{Simulations}
 \label{sec:nco_sim}
 
-\subsection{One confounding source, similar outcome prevalence rates}
+\subsection{Similar outcome prevalence rates}
 
-Data for $10000$ subjects were generated according to the following scheme:
+Data for $n=1,...,N$ where $N=10000$ subjects were generated according to the following scheme: the unobserved confounder of the treatment and outcome $U_n \sim N(0, 1)$, the treatment assignment $\text{logit}[P(A_n=1|U)] = 0.5 U_n$, the collection of $I$ negative control outcomes $\text{logit}[P(N_{i,n}=1|U)] = \alpha_{i} U_n$, and the relationships between $U$ and $N_i$ as $\alpha_{i} \sim 0.3P_0 + 0.2 Unif(0.5, 0.75) + 0.5 Unif(-0.75, -0.5)$ for $n=1,...,N; i=1,...,I$, where $P_0$ is a point mass at 0.
+The outcome prevalance rates of all NCOs were around 0.5.
+This scheme is similar to the simulations used in \citep{gruber2016limitations}.
+Since there are no observed confounders, the bias in terms of the log risk ratio for NCO $i$ was estimated with $\widehat{S}_{i} = log(\overline{N_{i,1}}) - log(\overline{N_{i,0}})$, where $\overline{N_{i,a}} = \frac{\sum_n^{N} N_{i,n} \mathbbm{1}(A_n=a)}{\sum_n^{N} \mathbbm{1}(A_n=a)}$.
+We use the mean model described in subsection 3.2.3 and the polynomial model described in subsection 3.2.4 to infer the posterior predictive distribution for the bias magnitude of the NCOs for a set of observed collection sizes of $I \in {5, 15, 30, 50}$.
+We repeated the simulations 100 times.
 
-\begin{align*}
-    U &\sim N(0, 1)\\
-    \text{logit}[P(N_{i}=1|U)] &= 1 + \alpha_{i} U \\
-    \text{logit}[P(A=1|U)] &= 0.3 U \\
-    \text{logit}[P(Y=1|A, U)] &= 1 + \alpha^{(Y)} U + \beta A \\
-    \alpha_{i} &\sim 0.3P_0 + 0.35 Unif(0.5, 1) + 0.35 Unif(-1, -0.5) \quad \text{for } i=1,...,I \\
-    \alpha^{(Y)} &\sim Unif(1, 0.5)
-\end{align*}
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.45\textwidth}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/one-ppd-lrr-bias-5.pdf}
+	\caption{I=5}
+\end{subfigure}%
+\begin{subfigure}{.45\textwidth}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/one-ppd-lrr-bias-15.pdf}
+	\caption{I=15}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/one-ppd-lrr-bias-30.pdf}
+	\caption{I=30}
+\end{subfigure}%
+\begin{subfigure}{.45\textwidth}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/one-ppd-lrr-bias-50.pdf}
+	\caption{I=50}
+\end{subfigure}
+\caption{Posterior predictive distributions using Mean and Polynomial model and varying number of observed NCOs. In yellow is the true distribution of bias for NCOs generated from schema in the simulation. As I increases, the posterior predictives become a better approximation of the true distribution of the bias.}
+\end{figure}
 
-\noindent where $I=30$ is the number of NCOs used to estimate the posterior of the magnitude of bias. This data-generating scheme satisfies all assumptions required for our method. Here, some NCOs have the same confounding structure as Y, but some do not. Since there are no observed confounders, the bias in terms of the log risk ratio was estimated with $\widehat{S}_{i} = log(\frac{\overline{N_i^{(1)}}}{\overline{N_i^{(0)}}})$, where $\overline{N_i^{(a)}} = \frac{\sum_n^{5000} N_{i,n} \mathbbm{1}(A_n=a)}{\sum_n^{5000} \mathbbm{1}(A_n=a)}$. We set $\beta=0$. We use the mean model described in subsection 3.2.3 to infer a posterior predictive distribution for the bias magnitude.
+For each simulation trial, we calculate two summary metrics: Wesserstain distance between true distribution and the posterior predictive distribution, and Absolute Percentage Difference (APD) between the 95th percentile of the true distribution and that of the posterior predictive distribution that is calculated as $(|\hat{q}-q|/q)100$\%. The table below mean and standard deviation in parenthesis of each metrics over 100 trials.
 
-\todo{Show results}
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+\hline
+I & Model & Wesserstain distance & APD from true 95th percentile\\ 
+\hline
+5 & Mean & 0.260 (0.193) & 818\% (672.6\%) \\
+15 & Mean & 0.021 (0.011) & 16.6\% (15.0\%) \\
+30 & Mean & 0.014 (0.007) & 6.1\% (4.8\%)\\
+50 & Mean & \textbf{0.011} (0.006) & \textbf{5.1\%} (4.0\%)\\
+5 & Poly(0.5) & 1.146 (2.167) & 3371\% (6900\%)\\
+15 & Poly(0.5) & 0.030 (0.015) & 38.6\% (28.0\%)\\
+30 & Poly(0.5) & 0.015 (0.007) & 8.0\% (5.6\%)\\
+50 & Poly(0.5) & 0.012 (0.006) & 6.5\% (4.7\%)\\
+\hline
+\end{tabular}
+\end{center}
 
-\subsection{Multiple confounding sources, differing outcome prevalence rates}
+\subsection{Differing outcome prevalence rates}
 
 Now we consider a simulation setting with two sources of confounding and a set of NCOs that include 1) NCOs that have the same confounding structure as $A$ and $Y$; 2) NCOs that are caused by some, but not all, common causes of $A$ and $Y$; and 3) NCOs that are caused by a variable not a common cause of $A$ and $Y$. Data for $10000$ subjects were generated according to the following scheme:
 

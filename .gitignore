@@ -5,7 +5,6 @@
 /manuscript/manuscript.bbl
 /manuscript/manuscript.blg
 /manuscript/manuscript.dvi
-/manuscript/manuscript.log
 /manuscript/manuscript.out
 /manuscript/manuscript.pdf
 /manuscript/manuscript.synctex.gz
@@ -13,16 +12,20 @@
 /manuscript/nco-bias-characterization.aux
 /manuscript/nco-bias-characterization.bbl
 /manuscript/nco-bias-characterization.blg
-/manuscript/nco-bias-characterization.log
 /manuscript/nco-bias-characterization.out
 /manuscript/nco-bias-characterization.pdf
 /manuscript/nco-bias-characterization.synctex.gz
+/manuscript/*.log
 
 /jupyter/.ipynb_checkpoints/
 /jupyter/product-mean-model.ipynb
 /jupyter/group-mean-model-binary-treatment.ipynb
 /jupyter/group-gp-model-binary-treatment-multiple-confounding.ipynb
 /jupyter/Analysis of simulations.ipynb
+
+/script/Interactive*
+/script/__pycache__/
+/script/nohup-queue.py
 
 nohup.out
 
