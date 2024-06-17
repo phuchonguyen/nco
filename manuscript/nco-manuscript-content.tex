@@ -256,8 +256,6 @@ We can approximate $\pi$ using Monte Carlo samples. Fixing $M_{I+1}=1$ or predic
 
 where $T$ is the number of MCMC iterations; $\phi_\delta^{(t)}, \mu^{(t)}, \sigma^{2(t)}$ are posterior samples from the $t$th MCMC iteration. Finally, compute $\pi \approx \hat{\pi} = \frac{\sum_t \pi^{(t)}}{T}$.
 
-\todo{Add interpretation for GP: mean of new outcome more similar to the mean of observed outcomes with similar proportions}.
-
 \section{Simulations}
 \label{sec:nco_sim}
 
@@ -267,7 +265,7 @@ Data for $n=1,...,N$ where $N=10000$ subjects were generated according to the fo
 The outcome prevalance rates of all NCOs were around 0.5.
 This scheme is similar to the simulations used in \citep{gruber2016limitations}.
 Since there are no observed confounders, the bias in terms of the log risk ratio for NCO $i$ was estimated with $\widehat{S}_{i} = log(\overline{N_{i,1}}) - log(\overline{N_{i,0}})$, where $\overline{N_{i,a}} = \frac{\sum_n^{N} N_{i,n} \mathbbm{1}(A_n=a)}{\sum_n^{N} \mathbbm{1}(A_n=a)}$.
-We use the mean model described in subsection 3.2.3 and the polynomial model described in subsection 3.2.4 to infer the posterior predictive distribution for the bias magnitude of the NCOs for a set of observed collection sizes of $I \in {5, 15, 30, 50}$.
+We use the mean model described in subsection 3.2.3 and the GP model described in subsection 3.2.4 to infer the posterior predictive distribution for the bias magnitude of the NCOs for a set of observed collection sizes of $I \in {5, 15, 30, 50}$.
 We repeated the simulations 100 times.
 
 \begin{figure}[H]
@@ -306,10 +304,10 @@ I & Model & Wesserstain distance & APD from true 95th percentile\\
 15 & Mean & 0.021 (0.011) & 16.6\% (15.0\%) \\
 30 & Mean & 0.014 (0.007) & 6.1\% (4.8\%)\\
 50 & Mean & \textbf{0.011} (0.006) & \textbf{5.1\%} (4.0\%)\\
-5 & Poly(0.5) & 1.146 (2.167) & 3371\% (6900\%)\\
-15 & Poly(0.5) & 0.030 (0.015) & 38.6\% (28.0\%)\\
-30 & Poly(0.5) & 0.015 (0.007) & 8.0\% (5.6\%)\\
-50 & Poly(0.5) & 0.012 (0.006) & 6.5\% (4.7\%)\\
+5 & GP(0.5) & 1.146 (2.167) & 3371\% (6900\%)\\
+15 & GP(0.5) & 0.030 (0.015) & 38.6\% (28.0\%)\\
+30 & GP(0.5) & 0.015 (0.007) & 8.0\% (5.6\%)\\
+50 & GP(0.5) & 0.012 (0.006) & 6.5\% (4.7\%)\\
 \hline
 \end{tabular}
 \end{center}
